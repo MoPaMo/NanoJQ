@@ -10,4 +10,5 @@
 
   // Alias for selector
   window.$ = NanoJQ;
+  window["_"] = console.log.bind(console);
 })(window);
