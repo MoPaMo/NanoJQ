@@ -23,16 +23,27 @@
       this.elements.forEach((el) => el.addEventListener(event, callback));
       return this;
     },
+    attr: function (name, value) {
+      if (value === undefined) {
+        // Getter
+        return this.elements[0].getAttribute(name);
+      } else {
+        // Setter
+        this.elements.forEach((el) => el.setAttribute(name, value));
+        return this;
+      }
+    },
   };
 
   // Extend element prototypes
   Element.prototype.hide = NanoJQ.prototype.hide;
   Element.prototype.show = NanoJQ.prototype.show;
   Element.prototype.on = NanoJQ.prototype.on;
-
+  Element.prototype.attr = NanoJQ.prototype.attr;
   NodeList.prototype.hide = NanoJQ.prototype.hide;
   NodeList.prototype.show = NanoJQ.prototype.show;
   NodeList.prototype.on = NanoJQ.prototype.on;
+  NodeList.prototype.attr = NanoJQ.prototype.attr;
 
   window.$ = NanoJQ;
   window._ = console.log.bind(console);
