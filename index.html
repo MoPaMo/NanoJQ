@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NanoJQ - Tiny jQuery-like Library</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script src="nanojq.js"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">NanoJQ</h1>
+        <p class="subtitle">
+          A tiny, lightweight JavaScript framework inspired by jQuery
+        </p>
+
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <h2 class="title is-4">Selector</h2>
+              <button class="button is-primary" id="selectButton">
+                Select Paragraphs
+              </button>
+              <p class="mt-3">First paragraph</p>
+              <p>Second paragraph</p>
+              <p>Third paragraph</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h2 class="title is-4">Hide/Show</h2>
+              <button class="button is-info" id="toggleButton">
+                Toggle Visibility
+              </button>
+              <div id="toggleDiv" class="mt-3 has-background-grey-lighter p-3">
+                This div will be hidden and shown.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns mt-4">
+          <div class="column">
+            <div class="box">
+              <h2 class="title is-4">Chaining</h2>
+              <button class="button is-warning" id="chainButton">
+                Apply Chained Methods
+              </button>
+              <ul class="mt-3" id="chainList">
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h2 class="title is-4">Event Handling</h2>
+              <button class="button is-danger" id="eventButton">
+                Click Me!
+              </button>
+              <p id="eventResult" class="mt-3"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Select Paragraphs
+      $("#selectButton").addEventListener("click", function () {
+        $("p").style.color = "blue";
+      });
+
+      // Toggle Visibility
+      $("#toggleButton").addEventListener("click", function () {
+        $("#toggleDiv").style.display === "none"
+          ? $("#toggleDiv").show()
+          : $("#toggleDiv").hide();
+      });
+
+      // Chaining
+      $("#chainButton").addEventListener("click", function () {
+        $("#chainList").children.style.color = "green";
+        $("#chainList").firstElementChild.nextElementSibling.style.fontWeight =
+          "bold";
+      });
+
+      // Event Handling
+      $("#eventButton").addEventListener("click", function () {
+        $("#eventResult").innerText =
+          "Button clicked at " + new Date().toLocaleTimeString();
+      });
+
+      // Logging
+      _("NanoJQ demo loaded!");
+    </script>
+  </body>
+</html>
