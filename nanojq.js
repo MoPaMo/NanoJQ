@@ -85,6 +85,39 @@
       }
       return this;
     },
+    val: function (value) {
+      if (value === undefined) {
+        if (this.elements[0]) {
+          if (
+            this.elements[0].type === "checkbox" ||
+            this.elements[0].type === "radio"
+          ) {
+            return this.elements[0].checked;
+          } else {
+            return this.elements[0].value;
+          }
+        }
+        return undefined;
+      } else {
+        this.elements.forEach((el) => {
+          if (el.type === "checkbox" || el.type === "radio") {
+            el.checked = !!value;
+          } else {
+            el.value = value;
+          }
+        });
+        return this;
+      }
+    },
+
+    submit: function () {
+      this.elements.forEach((el) => {
+        if (el.tagName.toLowerCase() === "form") {
+          el.submit();
+        }
+      });
+      return this;
+    },
   };
 
   window.$ = NanoJQ;
