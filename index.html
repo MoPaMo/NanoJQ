@@ -16,24 +16,20 @@
       href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
     />
     <style>
-        .hero-body {
-            transition-duration: 0.25s;
+      .hero-body {
+        transition-duration: 0.25s;
+      }
+      .code-column {
+        max-width: 50%;
+      }
+      @media (max-width: 768px) {
+        .code-column {
+          max-width: 100%; /* On smaller screens, allow the column to take full width */
         }
-        .hero-body {
-    transition-duration: 0.25s;
-  }
-  .code-column {
-    max-width: 50%;
-
-  }
-  @media (max-width: 768px) {
-    .code-column {
-      max-width: 100%; /* On smaller screens, allow the column to take full width */
-    }
-  }
-    .code-column pre {
-      white-space: pre-wrap;
-    }
+      }
+      .code-column pre {
+        white-space: pre-wrap;
+      }
     </style>
   </head>
   <body data-theme="dark">
@@ -47,10 +43,16 @@
     <section class="hero is-fullheight">
       <div class="hero-body columns is-desktop">
         <div class="column">
-          <p id="title" class="title has-text-white is-size-1 has-text-weight-bold">
+          <p
+            id="title"
+            class="title has-text-white is-size-1 has-text-weight-bold"
+          >
             NanoJQ
           </p>
-          <p id="subtitle" class="subtitle has-text-white has-text-weight-light">
+          <p
+            id="subtitle"
+            class="subtitle has-text-white has-text-weight-light"
+          >
             A tiny, lightweight JavaScript framework inspired by jQuery
           </p>
           <div class="buttons">
@@ -67,10 +69,10 @@
         </div>
         <div class="column code-column">
           <pre class="has-text-white is-size-4">
-                <code class="language-javascript" id="code-block">
+            <code class="language-javascript" id="code-block">
   $("#title").css("fontStyle", "italic");
-                </code>
-              </pre>
+            </code>
+          </pre>
         </div>
       </div>
     </section>
@@ -78,7 +80,7 @@
       <div class="container">
         <h2 class="title has-text-light has-text-centered" id="features">
           Features
-        </h1>
+        </h2>
         <div class="columns is-multiline">
           <div class="column is-4">
             <div class="card is-dark">
@@ -184,7 +186,7 @@ var inputValue = $('input#username').val();
 $('#content').html('<p>New content</p>');
 // Toggle visibility of elements
 $('.toggle-me').toggle();
-            </code></pre>
+        </code></pre>
       </div>
     </section>
     <footer class="footer has-background-dark">
@@ -194,16 +196,19 @@ $('.toggle-me').toggle();
     </footer>
     <script src="/nanojq.min.js"></script>
     <script>
-      let statements =[`$("#subtitle").toggle();`,`$(".button.is-primary").css("color", "red");`, `$("#title").on("click", (e)=>{alert("Clicked!")})`];
+      let statements = [
+        `$("#subtitle").toggle();`,
+        `$(".button.is-primary").css("color", "red");`,
+        `$("#title").on("click", (e) => { alert("Clicked!"); })`,
+      ];
       let i = 0;
       function runCode() {
         if (i < statements.length) {
-            $("#code-block").text(statements[i]);
+          $("#code-block").text(statements[i]);
           eval(statements[i]);
           i++;
           setTimeout(runCode, 10000);
-        }
-       else{
+        } else {
           i = 0;
           $(".button.is-primary").css("color", "");
           runCode();
