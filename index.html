@@ -205,6 +205,7 @@ $('.toggle-me').toggle();
       function runCode() {
         if (i < statements.length) {
           $("#code-block").text(statements[i]);
+          Prism.highlightElement($("#code-block").el(0));
           eval(statements[i]);
           i++;
           setTimeout(runCode, 10000);
