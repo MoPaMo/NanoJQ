@@ -1,103 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-background-dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NanoJQ - Tiny jQuery-like Library</title>
+    <title>
+      NanoJQ - A tiny, lightweight JavaScript framework inspired by jQuery
+    </title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"
     />
-    <script src="nanojq.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <style>
+      .has-text-code {
+        color: #a9dc76;
+      }
+      pre {
+        background-color: #2d2d2d !important;
+      }
+    </style>
   </head>
   <body>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">NanoJQ</h1>
-        <p class="subtitle">
-          A tiny, lightweight JavaScript framework inspired by jQuery
-        </p>
-
-        <div class="columns">
-          <div class="column">
-            <div class="box">
-              <h2 class="title is-4">Selector</h2>
-              <button class="button is-primary" id="selectButton">
-                Select Paragraphs
-              </button>
-              <p class="mt-3">First paragraph</p>
-              <p>Second paragraph</p>
-              <p>Third paragraph</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="box">
-              <h2 class="title is-4">Hide/Show</h2>
-              <button class="button is-info" id="toggleButton">
-                Toggle Visibility
-              </button>
-              <div id="toggleDiv" class="mt-3 has-background-grey-lighter p-3">
-                This div will be hidden and shown.
-              </div>
-            </div>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <strong class="has-text-primary">NanoJQ</strong>
+        </a>
+      </div>
+    </nav>
+    <section class="hero is-fullheight">
+      <div class="hero-body columns">
+        <div class="column">
+          <p class="title has-text-white is-size-1 has-text-weight-bold">
+            NanoJQ
+          </p>
+          <p class="subtitle has-text-white has-text-weight-light">
+            A tiny, lightweight JavaScript framework inspired by jQuery
+          </p>
+          <div class="buttons">
+            <a
+              href="https://github.com/MoPaMo/nanojq"
+              class="button is-primary is-dark"
+              target="_blank"
+              >Get The Code</a
+            >
+            <a href="#features" class="button is-primary is-light"
+              >See What It Can Do</a
+            >
           </div>
         </div>
-
-        <div class="columns mt-4">
-          <div class="column">
-            <div class="box">
-              <h2 class="title is-4">Chaining</h2>
-              <button class="button is-warning" id="chainButton">
-                Apply Chained Methods
-              </button>
-              <ul class="mt-3" id="chainList">
-                <li>First item</li>
-                <li>Second item</li>
-                <li>Third item</li>
-              </ul>
-            </div>
-          </div>
-          <div class="column">
-            <div class="box">
-              <h2 class="title is-4">Event Handling</h2>
-              <button class="button is-danger" id="eventButton">
-                Click Me!
-              </button>
-              <p id="eventResult" class="mt-3"></p>
-            </div>
-          </div>
+        <div class="column">
+          <pre class="has-text-white is-size-4">
+                <code class="language-javascript">
+$("div").css("color", "red");
+$("#imgContainer > img").hide();
+console.log("Logged to console");</code>
+              </pre>
         </div>
       </div>
     </section>
 
-    <script>
-      // Select Paragraphs
-      $("#selectButton").addEventListener("click", function () {
-        $("p").style.color = "blue";
-      });
+    <section class="section">
+      <div class="container">
+        <h1 class="title has-text-light">NanoJQ</h1>
+        <p class="subtitle has-text-grey-lighter">
+          A tiny, lightweight JavaScript framework inspired by jQuery
+        </p>
 
-      // Toggle Visibility
-      $("#toggleButton").addEventListener("click", function () {
-        $("#toggleDiv").style.display === "none"
-          ? $("#toggleDiv").show()
-          : $("#toggleDiv").hide();
-      });
+        <div class="content has-text-light">
+          <p>
+            NanoJQ is a minimal JavaScript library that provides jQuery-like
+            functionality for DOM manipulation and event handling. It's designed
+            to be lightweight and easy to use.
+          </p>
+        </div>
 
-      // Chaining
-      $("#chainButton").addEventListener("click", function () {
-        $("#chainList").children.style.color = "green";
-        $("#chainList").firstElementChild.nextElementSibling.style.fontWeight =
-          "bold";
-      });
+        <h2 class="title is-4 has-text-light mt-6">API Reference</h2>
 
-      // Event Handling
-      $("#eventButton").addEventListener("click", function () {
-        $("#eventResult").innerText =
-          "Button clicked at " + new Date().toLocaleTimeString();
-      });
+        <div class="content has-text-light">
+          <h3 class="title is-5 has-text-light">Selector</h3>
+          <p>
+            Use <code class="has-text-code">$(selector)</code> to select
+            elements. The selector can be a CSS selector string, an array of
+            elements, or a single element.
+          </p>
 
-      // Logging
-      _("NanoJQ demo loaded!");
-    </script>
+          <h3 class="title is-5 has-text-light">Methods</h3>
+
+          <h4 class="title is-6 has-text-light">.el(index)</h4>
+          <p>
+            Returns the element at the specified index, or the entire array of
+            elements if no index is provided.
+          </p>
+
+          <h4 class="title is-6 has-text-light">.remove()</h4>
+          <p>Removes all selected elements from the DOM.</p>
+
+          <h4 class="title is-6 has-text-light">.hide()</h4>
+          <p>Hides all selected elements.</p>
+
+          <h4 class="title is-6 has-text-light">.show()</h4>
+          <p>Shows all selected elements.</p>
+
+          <h4 class="title is-6 has-text-light">.toggle()</h4>
+          <p>Toggles the visibility of all selected elements.</p>
+
+          <h4 class="title is-6 has-text-light">.on(event, callback)</h4>
+          <p>Adds an event listener to all selected elements.</p>
+
+          <h4 class="title is-6 has-text-light">.attr(name, value)</h4>
+          <p>
+            Gets or sets the value of an attribute for the selected elements.
+          </p>
+
+          <h4 class="title is-6 has-text-light">.css(prop, value)</h4>
+          <p>Gets or sets CSS properties for the selected elements.</p>
+
+          <h4 class="title is-6 has-text-light">.val(value)</h4>
+          <p>Gets or sets the value of form elements.</p>
+
+          <h4 class="title is-6 has-text-light">.submit()</h4>
+          <p>Submits the first form element in the selection.</p>
+
+          <h4 class="title is-6 has-text-light">.text(content)</h4>
+          <p>Gets or sets the text content of the selected elements.</p>
+
+          <h4 class="title is-6 has-text-light">.html(content)</h4>
+          <p>Gets or sets the HTML content of the selected elements.</p>
+        </div>
+
+        <h2 class="title is-4 has-text-light mt-6">Usage Example</h2>
+
+        <pre><code class="language-javascript">
+// Select all paragraphs and add a click event
+$('p').on('click', function() {
+    $(this).css('color', 'red');
+});
+
+// Hide all elements with class 'hidden'
+$('.hidden').hide();
+
+// Get the value of an input
+var inputValue = $('input#username').val();
+
+// Set the HTML content of a div
+$('#content').html('<p>New content</p>');
+
+// Toggle visibility of elements
+$('.toggle-me').toggle();
+            </code></pre>
+      </div>
+    </section>
+
+    <footer class="footer has-background-dark">
+      <div class="content has-text-centered has-text-light">
+        <p>NanoJQ - A lightweight jQuery-like library</p>
+      </div>
+    </footer>
+
+    <script src="/nanojq.min.js"></script>
   </body>
 </html>
