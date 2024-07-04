@@ -15,16 +15,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
     />
-    <style>
-      .has-text-code {
-        color: #a9dc76;
-      }
-      pre {
-        background-color: #2d2d2d !important;
-      }
-    </style>
+    <style></style>
   </head>
-  <body>
+  <body data-theme="dark">
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
@@ -33,7 +26,7 @@
       </div>
     </nav>
     <section class="hero is-fullheight">
-      <div class="hero-body columns">
+      <div class="hero-body columns is-desktop">
         <div class="column">
           <p class="title has-text-white is-size-1 has-text-weight-bold">
             NanoJQ
@@ -60,6 +53,51 @@ $("div").css("color", "red");
 $("#imgContainer > img").hide();
 console.log("Logged to console");</code>
               </pre>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <div class="card">
+              <div class="card-content">
+                <div class="content has-text-centered">
+                  <span class="icon is-size-1">
+                    <i>🔥</i>
+                  </span>
+                  <h3 class="title is-4">Blazing fast</h3>
+                  <p>Text</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div class="card">
+              <div class="card-content">
+                <div class="content has-text-centered">
+                  <span class="icon is-size-1">
+                    <i>🎯</i>
+                  </span>
+                  <h3 class="title is-4">Focused functionality</h3>
+                  <p>Text</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div class="card is-dark">
+              <div class="card-content">
+                <div class="content has-text-centered">
+                  <span class="icon is-size-1 has-text-info">
+                    <i>🪶</i>
+                  </span>
+                  <h3 class="title is-4">Lightweight (<1 KB gzipped)</h3>
+                  <p>Text</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
