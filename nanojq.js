@@ -33,7 +33,18 @@
       } else {
         return null;
       }
-    },
+      },
+/**
+ * Removes all elements in the `elements` array from their parent nodes.
+ *
+ * @return {Object} The current instance of the object.
+ */
+      remove() {
+        this.elements.forEach((el) => {
+          if (el && el.parentNode) el.parentNode.removeChild(el);
+        });
+        return this;
+      }
     /**
      * Hides all the elements in the `elements` array by setting their `display` style property to "none".
      *
