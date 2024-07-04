@@ -15,6 +15,19 @@
   }
 
   NanoJQ.prototype = {
+    el: function (index) {
+      if (index === undefined) {
+        return this.elements;
+      } else if (
+        typeof index === "number" &&
+        index >= 0 &&
+        index < this.elements.length
+      ) {
+        return this.elements[index];
+      } else {
+        return null;
+      }
+    },
     hide: function () {
       this.elements.forEach((el) => {
         if (el && el.style) el.style.display = "none";
