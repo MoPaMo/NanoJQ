@@ -27,6 +27,13 @@
       });
       return this;
     },
+    toggle: function () {
+      this.elements.forEach((el) => {
+        if (el && el.style)
+          el.style.display = el.style.display === "none" ? "" : "none";
+      });
+      return this;
+    },
     on: function (event, callback) {
       this.elements.forEach((el) => {
         if (el && el.addEventListener) el.addEventListener(event, callback);
