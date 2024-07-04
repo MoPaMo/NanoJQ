@@ -118,6 +118,27 @@
       });
       return this;
     },
+    text: function (content) {
+      if (content === undefined) {
+        return this.elements.map((el) => el.textContent).join("");
+      } else {
+        this.elements.forEach((el) => {
+          el.textContent = content;
+        });
+        return this;
+      }
+    },
+
+    html: function (content) {
+      if (content === undefined) {
+        return this.elements[0] ? this.elements[0].innerHTML : "";
+      } else {
+        this.elements.forEach((el) => {
+          el.innerHTML = content;
+        });
+        return this;
+      }
+    },
   };
 
   window.$ = NanoJQ;
