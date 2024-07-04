@@ -47,6 +47,24 @@
         return this;
       }
     },
+    css: function (prop, value) {
+      if (typeof prop === "object") {
+        this.elements.forEach((el) => {
+          for (let key in prop) {
+            if (el && el.style) el.style[key] = prop[key];
+          }
+        });
+      } else if (value === undefined) {
+        return this.elements[0] && window.getComputedStyle
+          ? window.getComputedStyle(this.elements[0])[prop]
+          : null;
+      } else {
+        this.elements.forEach((el) => {
+          if (el && el.style) el.style[prop] = value;
+        });
+      }
+      return this;
+    },
   };
 
   window.$ = NanoJQ;
