@@ -15,7 +15,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
     />
-    <style></style>
+    <style>
+        .hero-body {
+            transition-duration: 0.25s;
+        }
+    </style>
   </head>
   <body data-theme="dark">
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
@@ -28,10 +32,10 @@
     <section class="hero is-fullheight">
       <div class="hero-body columns is-desktop">
         <div class="column">
-          <p class="title has-text-white is-size-1 has-text-weight-bold">
+          <p id="title" class="title has-text-white is-size-1 has-text-weight-bold">
             NanoJQ
           </p>
-          <p class="subtitle has-text-white has-text-weight-light">
+          <p id="subtitle" class="subtitle has-text-white has-text-weight-light">
             A tiny, lightweight JavaScript framework inspired by jQuery
           </p>
           <div class="buttons">
@@ -48,10 +52,10 @@
         </div>
         <div class="column">
           <pre class="has-text-white is-size-4">
-                <code class="language-javascript">
-$("div").css("color", "red");
-$("#imgContainer > img").hide();
-console.log("Logged to console");</code>
+                <code class="language-javascript" id="code-block">
+
+  $("#title").css("fontStyle", "italic");
+                </code>
               </pre>
         </div>
       </div>
@@ -106,17 +110,14 @@ console.log("Logged to console");</code>
     </section>
     <section class="section">
       <div class="container">
-        <h2 class="title has-text-light">Installation</h1>
-<p class="has-text-light">Easy as cake!</p>
+        <h2 class="title has-text-light">Installation</h2>
+        <p class="has-text-light">Easy as cake!</p>
         <pre><code class="language-html">&lt;script src="https://github.com/MoPaMo/NanoJQ/raw/main/nanojq.min.js"&gt;&lt;/script&gt;</code></pre>
       </div>
     </section>
     <section class="section">
       <div class="container">
-     
-
         <h2 class="title is-3 has-text-light mt-6">API Reference</h2>
-
         <div class="content has-text-light">
           <h3 class="title is-5 has-text-light">Selector</h3>
           <p>
@@ -124,80 +125,77 @@ console.log("Logged to console");</code>
             elements. The selector can be a CSS selector string, an array of
             elements, or a single element.
           </p>
-
           <h3 class="title is-5 has-text-light">Methods</h3>
-
           <h4 class="title is-6 has-text-light">.el(index)</h4>
           <p>
             Returns the element at the specified index, or the entire array of
             elements if no index is provided.
           </p>
-
           <h4 class="title is-6 has-text-light">.remove()</h4>
           <p>Removes all selected elements from the DOM.</p>
-
           <h4 class="title is-6 has-text-light">.hide()</h4>
           <p>Hides all selected elements.</p>
-
           <h4 class="title is-6 has-text-light">.show()</h4>
           <p>Shows all selected elements.</p>
-
           <h4 class="title is-6 has-text-light">.toggle()</h4>
           <p>Toggles the visibility of all selected elements.</p>
-
           <h4 class="title is-6 has-text-light">.on(event, callback)</h4>
           <p>Adds an event listener to all selected elements.</p>
-
           <h4 class="title is-6 has-text-light">.attr(name, value)</h4>
           <p>
             Gets or sets the value of an attribute for the selected elements.
           </p>
-
           <h4 class="title is-6 has-text-light">.css(prop, value)</h4>
           <p>Gets or sets CSS properties for the selected elements.</p>
-
           <h4 class="title is-6 has-text-light">.val(value)</h4>
           <p>Gets or sets the value of form elements.</p>
-
           <h4 class="title is-6 has-text-light">.submit()</h4>
           <p>Submits the first form element in the selection.</p>
-
           <h4 class="title is-6 has-text-light">.text(content)</h4>
           <p>Gets or sets the text content of the selected elements.</p>
-
           <h4 class="title is-6 has-text-light">.html(content)</h4>
           <p>Gets or sets the HTML content of the selected elements.</p>
         </div>
-
         <h2 class="title is-4 has-text-light mt-6">Usage Example</h2>
-
         <pre><code class="language-javascript">
 // Select all paragraphs and add a click event
 $('p').on('click', function() {
     $(this).css('color', 'red');
 });
-
 // Hide all elements with class 'hidden'
 $('.hidden').hide();
-
 // Get the value of an input
 var inputValue = $('input#username').val();
-
 // Set the HTML content of a div
 $('#content').html('<p>New content</p>');
-
 // Toggle visibility of elements
 $('.toggle-me').toggle();
             </code></pre>
       </div>
     </section>
-
     <footer class="footer has-background-dark">
       <div class="content has-text-centered has-text-light">
         <p>NanoJQ - A lightweight jQuery-like library</p>
       </div>
     </footer>
-
     <script src="/nanojq.min.js"></script>
+    <script>
+      let statements =[`$("#subtitle").toggle();`,`$(".button.is-primary").css("color", "red");`, `$("#title").on("click", (e)=>{alert("Clicked!")})`];
+      let i = 0;
+      function runCode() {
+        if (i < statements.length) {
+            $("#code-block").text(statements[i]);
+          eval(statements[i]);
+          i++;
+          setTimeout(runCode, 5000);
+        }
+       else{
+          i = 0;
+          $(".button.is-primary").css("color", "");
+          runCode();
+        }
+      }
+      runCode();
+    </script>
   </body>
 </html>
