@@ -19,6 +19,21 @@
         .hero-body {
             transition-duration: 0.25s;
         }
+        .hero-body {
+    transition-duration: 0.25s;
+  }
+  .code-column {
+    max-width: 50%;
+
+  }
+  @media (max-width: 768px) {
+    .code-column {
+      max-width: 100%; /* On smaller screens, allow the column to take full width */
+    }
+  }
+    .code-column pre {
+      white-space: pre-wrap;
+    }
     </style>
   </head>
   <body data-theme="dark">
@@ -50,10 +65,9 @@
             >
           </div>
         </div>
-        <div class="column">
+        <div class="column code-column">
           <pre class="has-text-white is-size-4">
                 <code class="language-javascript" id="code-block">
-
   $("#title").css("fontStyle", "italic");
                 </code>
               </pre>
